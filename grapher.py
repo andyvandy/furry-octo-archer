@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    if sys.argv[1] =='pie':
+    if sys.argv[1] =='Pie':
         pie_plot(sys.argv[2])
     if sys.argv[1] =='ScatterColour':
         scatter_colour(sys.argv[2])
