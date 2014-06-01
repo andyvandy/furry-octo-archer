@@ -45,10 +45,11 @@ if __name__ == '__main__':
                 }
     if len(sys.argv)==1:
         print "Use help for information on how to use me! --> grapher.py help"
-    if sys.argv[1]== 'help':
-        if len(sys.argv)==2:
-            print" use one of the following commands "
-            print commands
-        elif sys.argv[2] in commands:
-            print command_help[command]
+    if len(sys.argv)>1:
+        if sys.argv[1]== 'help':
+            if len(sys.argv)==2:
+                print" to get help on the following commands, type grapher.py help COMMAND "
+                print commands
+            elif sys.argv[2] in commands:
+                print command_help[command]
     main()
