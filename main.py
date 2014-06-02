@@ -15,7 +15,7 @@ from pylab import *
 
 
 #place all features in this list
-commands= ['Pie', 'ScatterColour']
+commands= ['Pie', 'ScatterColour','Line','CosSin']
 
  
 class MyFrameSub(GUIbase.MyFrame1):
@@ -62,6 +62,8 @@ class MyFrameSub(GUIbase.MyFrame1):
         selection= self.m_functionscombo.GetValue()
         if selection =="Pie":pie_plot_options(self)
         elif selection =="ScatterColour": scatter_colour_options(self)
+        elif selection =='Line': line_plot_options(self)
+        elif selection =='CosSin': CosSin_plot_options(self)
         self.Layout() 
         #acts as a switch board and sets the options for each feature
     
@@ -78,7 +80,8 @@ class MyFrameSub(GUIbase.MyFrame1):
         selection =commands[self.m_functionscombo.GetCurrentSelection()]
         if selection =="Pie": pie_plot( int(self.m_textCtrl_field1.GetValue()),self)
         elif selection =="ScatterColour": scatter_colour(int(self.m_textCtrl_field1.GetValue()),self)
-        
+        elif selection =='Line': line_plot(int(self.m_textCtrl_field1.GetValue()),int(self.m_textCtrl_field2.GetValue()),self)
+        elif selection =='CosSin':CosSin_plot(self)
         if self.m_savecheck.GetValue(): self.save_img()
         self.canvas = FigCanvas(self.m_canvas, wx.ID_ANY, self.figure)
         #acts as the switchboard and gets stuff onto the plot
@@ -102,7 +105,7 @@ class MyFrameSub(GUIbase.MyFrame1):
         
 #Functions are below!________________________________________________________________    
 
-#------- Pies   
+#-------Pies   
 def pie_plot(slices,self):
     Z = np.ones(slices)
     Z[-1] *=2
@@ -118,8 +121,8 @@ def pie_plot_options(self):
     
     self.m_textCtrl_field1.Show()
     self.m_staticText_field1.SetLabel("Slices")
-#------ Pies
-    
+#------Pies
+  
 #---Scatter colour    
 def scatter_colour(points,self):
     X = np.random.normal(0,1,points)
@@ -133,7 +136,28 @@ def scatter_colour_options(self):
     self.m_staticText_field1.Show()
     self.m_textCtrl_field1.Show() 
     self.m_staticText_field1.SetLabel("Points")
-#---Scatter colour     
+#---Scatter colour
+
+#-----lines
+def line_plot(m,b,self):
+    x=[-10,-5,0,5,10]
+    y=[m*5*ex+b for ex in x]
+    self.axes.plot(x, y, linewidth=2.0)
+def line_plot_options(self):
+    self.m_staticText_field1.Show()
+    self.m_textCtrl_field1.Show()
+    self.m_staticText_field2.Show()
+    self.m_textCtrl_field2.Show()
+    self.m_staticText_field1.SetLabel("y=mx+b, m:")
+    self.m_staticText_field2.SetLabel("b:")
+#-----lines
+
+#----cos sin
+def CosSin_plot(self):
+    pass
+def CosSin_plot_options(self):
+    pass
+#----cos sin       
         
 #Functions are above! _________________________________________    
 if __name__=='__main__':        
