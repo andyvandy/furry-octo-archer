@@ -57,21 +57,20 @@ class MyFrame1 ( wx.Frame ):
 		
 		bSizer1 = wx.BoxSizer( wx.VERTICAL )
 		
-		sbSizer1 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"label" ), wx.VERTICAL )
+		sbSizer1 = wx.StaticBoxSizer( wx.StaticBox( self, wx.ID_ANY, u"Parameters" ), wx.VERTICAL )
 		
 		gbSizer6 = wx.GridBagSizer( 0, 0 )
 		gbSizer6.SetFlexibleDirection( wx.BOTH )
 		gbSizer6.SetNonFlexibleGrowMode( wx.FLEX_GROWMODE_SPECIFIED )
 		
 		m_functionscomboChoices = []
-		self.m_functionscombo = wx.ComboBox( self, wx.ID_ANY, u"functions", wx.DefaultPosition, wx.DefaultSize, m_functionscomboChoices, 0 )
+		self.m_functionscombo = wx.ComboBox( self, wx.ID_ANY, wx.EmptyString, wx.DefaultPosition, wx.DefaultSize, m_functionscomboChoices, 0 )
 		gbSizer6.Add( self.m_functionscombo, wx.GBPosition( 0, 0 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
 		
 		self.m_savecheck = wx.CheckBox( self, wx.ID_ANY, u"save?", wx.DefaultPosition, wx.DefaultSize, 0 )
-		self.m_savecheck.SetValue(True) 
 		gbSizer6.Add( self.m_savecheck, wx.GBPosition( 0, 1 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
 		
-		self.m_staticText2 = wx.StaticText( self, wx.ID_ANY, u"img name", wx.DefaultPosition, wx.DefaultSize, 0 )
+		self.m_staticText2 = wx.StaticText( self, wx.ID_ANY, u"Img name:", wx.DefaultPosition, wx.DefaultSize, 0 )
 		self.m_staticText2.Wrap( -1 )
 		gbSizer6.Add( self.m_staticText2, wx.GBPosition( 0, 2 ), wx.GBSpan( 1, 1 ), wx.ALL, 5 )
 		
