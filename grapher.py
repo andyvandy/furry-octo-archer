@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-
+commands= ['Pie', 'ScatterColour']
 
 def main():
     if sys.argv[1] =='Pie':
@@ -22,7 +22,7 @@ def pie_plot(slices):
     gca().set_aspect('equal')
     xticks([])
     yticks([])
-    savefig('figures/pie_ex.png',dpi=48)
+    #savefig('figures/pie_ex.png',dpi=48)
     show()
 
 def scatter_colour(points):
@@ -37,7 +37,7 @@ def scatter_colour(points):
     
 
 if __name__ == '__main__':
-    commands= ['Pie', 'ScatterColour']
+    
     command_help={
                 "Pie":" use it like this -> grapher.py Pie int(slices)"
                ,"ScatterColour": " use it like this -> grapher.py ScatterColour int(points)"
